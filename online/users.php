@@ -1,7 +1,7 @@
 <?php
     include 'dbconfig.php';
     
-    header('Access-Control-Allow-Origin: *');  
+    //header('Access-Control-Allow-Origin: *');  
      
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
