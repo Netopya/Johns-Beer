@@ -7,17 +7,7 @@
   <title>John's Beer</title>
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css"/>
-    
-    <style>
-    .image{
-        position:relative;
-        overflow:hidden;
-        padding-bottom:100%;
-    }
-    .image img{
-        position:absolute;
-    }
-    </style>
+    <script src="js/jquery-3.1.0.min.js"></script>
 </head>
 
 
@@ -31,8 +21,8 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
+        <div class="row" id="user_container">
+            <!--<div class="col-lg-3">
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">John Keane</h3>
@@ -44,11 +34,21 @@
                     <button type="button" class="btn btn-primary">Sign In</button>
                   </div>
                 </div>
-            </div>
+            </div>-->
             
         </div>
     </div>
+    <script>
+        $.getJSON( "http://www.netopyaplanet.com/johnsbeer/users.php", function( data ) {
+              $.each( data, function( key, val ) {
+                $("#user_container").append(
+                    '<div class="col-lg-3 col-md-4 col-sm-6"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' + val["name"] +
+                    '</div><div class="panel-body"><img src="images/profilepics/' + val["picture"] + '" class="img-circle img-responsive"></div><div class="panel-footer"><button type="button" class="btn btn-primary">Sign In</button></div></div></div>'
+                )
+              });
+        });
     
+    </script>
     
 </body>
 </html>

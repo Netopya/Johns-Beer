@@ -1,6 +1,8 @@
 <?php
     include 'dbconfig.php';
     
+    header('Access-Control-Allow-Origin: *');  
+     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,11 +14,6 @@
     // prepare and bind
     $stmt = $conn->prepare("SELECT * FROM Users");
     $stmt->execute();
-    /*
-    $resultSet = $stmt->get_result();
-    $result = $resultSet->fetchAll(PDO::FETCH_ASSOC);
-    $json=json_encode($results);
-    */
     
     $stmt->bind_result($id, $name, $time, $picture, $credits);
     
