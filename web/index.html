@@ -45,7 +45,7 @@
         </div>
     </div>
     <script>
-        $.getJSON( "http://www.netopyaplanet.com/johnsbeer/users.php", function( data ) {
+        $.getJSON( "../users.php", function( data ) {
               $.each( data, function( key, val ) {
                 $("#user_container").append(
                     '<div class="col-lg-3 col-md-4 col-sm-6"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' + val["name"] +
